@@ -1,4 +1,6 @@
 # created by virtualenv automatically
 venv
 lib
+bin
+.idea
 pyvenv.cfg
