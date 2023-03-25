@@ -2,9 +2,10 @@
     Program: CS399 Midterm - Chicago
     Author:  Taylor Hancock
     Date:    02/23/2023
+
+    Note: Copilot used for some autocompletion functionality
 """
 
-from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from random import randint
 
@@ -21,6 +22,7 @@ class Player:
 class Game:
 
     games_played = 0
+    game_type = "Game"
 
     def __init__(self, players: [Player]) -> None:
         self.players = players
@@ -43,6 +45,8 @@ class Game:
 
 
 class Chicago(Game):
+    game_type = "Chicago"
+
     def __init__(self, players: [Player]) -> None:
         super().__init__(players)
 
@@ -60,13 +64,12 @@ class Chicago(Game):
                 if dice_val == goal:
                     player.score += goal
 
-        for player in self.players:
-            print(player.score)
         # return champions
         return super(self.__class__, self).champions()
 
 
 class DoubleRoll(Game):
+    game_type = "Double Roll"
 
     def __init__(self, players: [Player]) -> None:
         super().__init__(players)
@@ -121,8 +124,10 @@ for game in (Chicago(contestants), DoubleRoll(contestants)):
         if len(winners) >= 2:
             valid_game_found = True
 
-            print(f"After {game.games_played} {game.__class__} games played, a single game had multiple winners:")
+            # use list comprehension to convert all winners to corresponding strings
+            winner_strings = [winner.__str__() for winner in winners]
+
+            print(f"After {game.games_played} {game.game_type} games played, a single game had multiple winners:")
             print_str = "Winners: "
-            for winner in winners:
-                print_str += winner.__str__() + " - "
+            print_str += " - ".join(winner_strings)  # append all winners to string, split by " - "
             print(print_str)

@@ -20,7 +20,7 @@ def most_freq_word(list_of_words: [str]) -> (str, int):
 
 
 try:
-    with open("../treasure.txt") as file:
+    with open("treasure.txt") as file:
         text = file.read()
 except IOError as err:
     print(err)
