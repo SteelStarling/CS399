@@ -5,6 +5,7 @@
     Date:   03/25/2023
 
     NOTES:  Used GitHub Copilot for autocompletion of terms
+            Verified my methodology with Calvin, since interfacing with the superclass was giving me issues
 """
 
 
@@ -34,13 +35,13 @@ class SUSList(list):
         if element ** 0.5 % 1 != 0:
             element = round(abs(element) ** 0.5) ** 2
 
-        if element not in super():
+        if element not in self:
             index = 0
 
-            for value in super():
-                if element < value:
+            for value in self:
+                if element > value:
                     index += 1
-            super().insert(element, index)
+            super().insert(index, element)
 
     def extend(self, lst: list[int]) -> None:
         """
