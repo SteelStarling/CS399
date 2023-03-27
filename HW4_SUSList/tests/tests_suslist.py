@@ -7,7 +7,6 @@
     NOTES:  Used GitHub Copilot for autocompletion of assert info and terms
 """
 
-import pytest
 from suslist import SUSList
 
 
@@ -59,6 +58,13 @@ def test_extend():
     lst3 = SUSList()
     lst3.extend([9, 16, 4, 1])
     assert lst3 == [1, 4, 9, 16], "Extending a list by an unsorted list of squares should sort and add them to the list"
+
+    lst3.extend([])
+    assert lst3 == [1, 4, 9, 16], "Extending a list by an empty list should not change the list"
+
+    lst4 = SUSList()
+    lst4.extend([x for x in range(0, 25)])
+    assert lst4 == [0, 1, 4, 9, 16, 25], "Extending a list by all numbers up to 25 should only add squares to the list"
 
 
 
