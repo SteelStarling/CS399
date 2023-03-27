@@ -1,3 +1,3 @@
 # CS399-Work
 
-All my work for CS399 at ERAU! Organized in a terrible way I should really go about fixing later, luckily, this is a private repo.
+All my work for CS399 at ERAU! Lots of good Python learning. Still not organized in a great way, but good enough to be made public.
