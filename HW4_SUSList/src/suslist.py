@@ -31,16 +31,18 @@ class SUSList(list):
         :type element: object
         """
 
-        # If the element is not a square, convert it to its closest square
-        if element ** 0.5 % 1 != 0:
+        # If the element is not a square (negatives are never squares), convert it to its closest square
+        if element < 0 or element ** 0.5 % 1 != 0:
             element = round(abs(element) ** 0.5) ** 2
 
         if element not in self:
-            index = 0
 
+            # calculate correct index
+            index = 0
             for value in self:
                 if element > value:
                     index += 1
+
             super().insert(index, element)
 
     def extend(self, lst: list[int]) -> None:
