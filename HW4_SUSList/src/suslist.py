@@ -11,7 +11,7 @@
 
 class SUSList(list):
     """ Datatype based on List, contains only sorted unique squares.
-        I.e. the base-class' mutators that change the element order or add new elements, need to be overridden or disabled.
+        I.e. the base-class's mutators that change the element order or add new elements need to be overridden/disabled.
     """
 
     def __init__(self, *elements):
