@@ -9,8 +9,8 @@ from typing import Any, Type
 
 
 class DocMeta(type):
-    def __new__(mcs: Type, name: str, bases: tuple, attr: dict) -> Type:
-        new_class = super(DocMeta, mcs).__new__(mcs, name, bases, attr)
+    def __new__(mcs: Any, name: str, bases: tuple, attr: dict) -> Type:
+        new_class = type.__new__(mcs, name, bases, attr)
         for val in attr:
             # Fetch attribute
             attr_val = getattr(new_class, val)
