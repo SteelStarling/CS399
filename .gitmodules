@@ -1,0 +1,3 @@
+[submodule "HW7_LargeLanguageModels/w2v"]
+	path = HW7_LargeLanguageModels/w2v
+	url = https://github.com/wolfpaulus/w2v.git
